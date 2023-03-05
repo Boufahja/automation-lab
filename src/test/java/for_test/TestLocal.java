@@ -23,7 +23,7 @@ public class TestLocal {
     }
 
     private WebDriver getDriver() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Werin Group\\Desktop\\Workspace\\Draft-1\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
         return new ChromeDriver();
     }
 
