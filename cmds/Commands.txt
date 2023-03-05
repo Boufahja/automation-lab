@@ -1,11 +1,18 @@
 
-
 ---------------------------------------------VNC---------------------------------------
-
 http://localhost:7900
+http://localhost:7900/?autoconnect=1&resize=scale&password=secret.
 secret
-----------------------------Selenium Grid in mode Standalone using Docker--------------
 
+--------------------------Selenium Grid in mode Standalone without Docker--------------
+java -jar selenium-server-<version>.jar standalone
+
+-------------------------Selenium Grid in mode Hub and Nodes without Docker------------
+java -jar selenium-server-<version>.jar hub
+java -jar selenium-server-<version>.jar node --port 5555
+java -jar selenium-server-<version>.jar node --port 6666
+
+----------------------------Selenium Grid in mode Standalone using Docker--------------
 docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" selenium/standalone-firefox:4.8.1-20230221
 http://localhost:4444
 docker run -d -p 4444:4444 --shm-size="2g" selenium/standalone-firefox:4.8.1-20230221
@@ -31,3 +38,14 @@ docker run -d -p 7902:7900 --net grid -e SE_EVENT_BUS_HOST=selenium-hub `
     -e SE_EVENT_BUS_SUBSCRIBE_PORT=4443 `
     selenium/node-firefox:4.8.1-20230221
 docker network rm grid
+
+------------------------------------Zalenium-------------------------------------
+docker pull elgalu/selenium
+docker pull dosel/zalenium
+docker run --rm -ti --name zalenium -p 4444:4444 `
+      -v /var/run/docker.sock:/var/run/docker.sock `
+      -v /tmp/videos:/home/seluser/videos `
+      --privileged dosel/zalenium start
+http://localhost:4444/dashboard/
+http://localhost:4444/grid/console
+docker stop zalenium
