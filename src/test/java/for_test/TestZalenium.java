@@ -25,7 +25,7 @@ public class TestZalenium {
         caps.setCapability("zal:tz", "Europe/Berlin");
         caps.setCapability("zal:screenResolution", "1280x720");
         caps.setCapability("zal:idleTimeout", 180);
-        caps.setCapability("zal:recordVideo", true);
+        caps.setCapability("zal:recordVideo", false);
         WebDriver driver = new RemoteWebDriver(url, caps);
 
         driver.get("http://www.youtube.com");

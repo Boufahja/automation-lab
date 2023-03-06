@@ -1,7 +1,7 @@
 
 ---------------------------------------------VNC---------------------------------------
 http://localhost:7900
-http://localhost:7900/?autoconnect=1&resize=scale&password=secret.
+http://localhost:7900/?autoconnect=1&resize=scale&password=secret
 secret
 
 --------------------------Selenium Grid in mode Standalone without Docker--------------
@@ -22,21 +22,22 @@ docker run -d -p 4444:4444 --shm-size="2g" selenium/standalone-edge:4.8.1-202302
 ---------------------------Selenium Grid in mode Hub and Nodes using Docker------------
 docker network create grid
 docker run -d -p 4442-4444:4442-4444 --net grid --name selenium-hub selenium/hub:4.8.1-20230221
-docker run -d -p 7900:7900 --net grid -e SE_EVENT_BUS_HOST=selenium-hub `
+docker run -d -p 7900:7900 --net grid  --name chrome-node -e SE_EVENT_BUS_HOST=selenium-hub `
     --shm-size="2g" `
     -e SE_EVENT_BUS_PUBLISH_PORT=4442 `
     -e SE_EVENT_BUS_SUBSCRIBE_PORT=4443 `
     selenium/node-chrome:4.8.1-20230221
-docker run -d -p 7901:7900 --net grid -e SE_EVENT_BUS_HOST=selenium-hub `
+docker run -d -p 7901:7900 --net grid --name edge-node -e SE_EVENT_BUS_HOST=selenium-hub `
     --shm-size="2g" `
     -e SE_EVENT_BUS_PUBLISH_PORT=4442 `
     -e SE_EVENT_BUS_SUBSCRIBE_PORT=4443 `
     selenium/node-edge:4.8.1-20230221
-docker run -d -p 7902:7900 --net grid -e SE_EVENT_BUS_HOST=selenium-hub `
+docker run -d -p 7902:7900 --net grid --name firefox-node -e SE_EVENT_BUS_HOST=selenium-hub `
     --shm-size="2g" `
     -e SE_EVENT_BUS_PUBLISH_PORT=4442 `
     -e SE_EVENT_BUS_SUBSCRIBE_PORT=4443 `
     selenium/node-firefox:4.8.1-20230221
+
 docker network rm grid
 
 ------------------------------------Zalenium-------------------------------------
@@ -44,11 +45,13 @@ docker pull elgalu/selenium
 docker pull dosel/zalenium
 docker run --rm -ti --name zalenium -p 4444:4444 `
       -v /var/run/docker.sock:/var/run/docker.sock `
-      -v /tmp/videos:/home/seluser/videos `
+      -v /tmp/videos:/home/videos `
       --privileged dosel/zalenium start --desiredContainers 1
-http://localhost:4444/dashboard/
-http://localhost:4444/grid/console
+
 docker stop zalenium
 
+http://localhost:4444/grid/console
+http://localhost:4444/grid/admin/live
+http://localhost:4444/dashboard/
 ---------------------------------------------Bonus---------------------------------------
 wsl --shutdown
