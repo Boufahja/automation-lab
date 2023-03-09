@@ -47,7 +47,7 @@ docker pull dosel/zalenium
 docker run --rm -ti --name zalenium -p 4444:4444 `
       -v /var/run/docker.sock:/var/run/docker.sock `
       -v /tmp/videos:/home/seluser/videos `
-      --privileged dosel/zalenium start --desiredContainers 1
+      --privileged dosel/zalenium start --desiredContainers 2
 
 docker stop zalenium
 
@@ -55,4 +55,5 @@ http://localhost:4444/grid/console
 http://localhost:4444/grid/admin/live
 http://localhost:4444/dashboard/
 ---------------------------------------------Bonus---------------------------------------
-wsl --shutdown
+wsl --shutdown    // to stop Vmmem process
+sudo chmod 1777 /dev/shm  // give permission to /dev/shm in case of chrome

@@ -19,18 +19,21 @@ public class TestZalenium {
     public void test1() throws InterruptedException, MalformedURLException {
         URL url = new URL("http://localhost:4444/wd/hub");
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability(CapabilityType.BROWSER_NAME, "firefox");
+        caps.setCapability(CapabilityType.BROWSER_NAME, "chrome");
         caps.setCapability("zal:name", "myTestName");
         caps.setCapability("zal:build", "myTestBuild");
         caps.setCapability("zal:tz", "Europe/Berlin");
         caps.setCapability("zal:screenResolution", "1280x720");
         caps.setCapability("zal:idleTimeout", 180);
-        caps.setCapability("zal:recordVideo", false);
+        caps.setCapability("zal:recordVideo", true);
         WebDriver driver = new RemoteWebDriver(url, caps);
 
         driver.get("http://www.youtube.com");
         Thread.sleep(5000);
+        //driver.quit();
     }
+
+
     @Test
     public void myTestChrome() throws InterruptedException {
         ChromeOptions chromeOptions = new ChromeOptions();
