@@ -62,3 +62,4 @@ $ sudo chmod 1777 /dev/shm
 Error : org.openqa.selenium.WebDriverException: unknown error: Chrome failed to start: crashed.
 (unknown error: DevToolsActivePort file doesn't exist)
 (The process started from chrome location /usr/bin/google-chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.) 
+☝️ We can write a script that executes this command in all running elgalu/selenium containers
