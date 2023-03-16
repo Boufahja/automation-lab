@@ -53,6 +53,7 @@ docker stop zalenium
 
 http://localhost:4444/grid/console
 http://localhost:4444/grid/admin/live
+http://localhost:4444/grid/admin/live?refresh=5
 http://localhost:4444/dashboard/
 ---------------------------------------------Bonus---------------------------------------
 wsl --shutdown    // to stop Vmmem process

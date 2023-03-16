@@ -3,9 +3,7 @@ FROM ubuntu:jammy
 # 1. Install node 14
 RUN apt-get update && apt-get install -y curl && \
     curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt-get install -y nodejs \
-    apt-get install xfce4 xfce4-goodies \
-    apt-get install tightvncserver
+    apt-get install -y nodejs
 
 # 2. Install WebKit dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -88,9 +86,5 @@ RUN rfbrowser init
 # 16. Set workdir
 WORKDIR /home/pwuser
 
-COPY test.robot /home/pwuser
 # 17. Run everything after as non-privileged user.
-RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
-USER docker
-
-
+USER pwuser

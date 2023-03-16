@@ -1,0 +1,8 @@
+FROM python:3
+
+RUN python3 -m pip install robotframework
+RUN python3 -m pip install --upgrade robotframework-seleniumlibrary
+RUN python3 -m pip install webdrivermanager
+RUN python3 -m webdrivermanager firefox:latest chrome:latest --linkpath /usr/local/bin
+
+WORKDIR /usr/src/project

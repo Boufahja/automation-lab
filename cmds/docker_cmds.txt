@@ -1,0 +1,12 @@
+docker run --rm -ti `
+	-v "C:\Users\Werin Group\Desktop\Workspace\Draft-1\test\dockerfiles\test-robot:/usr/src/project" `
+	--name robotmec `
+	--privileged robotme bash
+
+docker run --rm -ti `
+	-v "$(pwd):/usr/src/project" `
+	--name robotmec `
+	--privileged robotme bash
+
+
+CMD ["robot", "-d", "/usr/src/project/", "/usr/src/project/sample-0-trivial/sample-0-trivial.txt"]
