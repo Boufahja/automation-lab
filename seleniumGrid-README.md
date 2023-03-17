@@ -11,13 +11,13 @@ Template command
 Browser : docker run -d -p HubPort:4444 -p VNCPort:7900 --shm-size="2g" selenium/standalone-browser:version
 
 Examples
-Firefox : docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" selenium/standalone-firefox:latest
+Firefox : docker run -d -p 4444:4444 -p 7900:7900 -p 5900:5900 --shm-size="2g" selenium/standalone-firefox:latest
 Chrome  : docker run -d -p 4444:4444 -p 7901:7900 --shm-size="2g" selenium/standalone-chrome:latest
 Edge    : docker run -d -p 4444:4444 -p 7902:7900 --shm-size="2g" selenium/standalone-edge:latest
 #### How to run tests ?
 Point your WebDriver tests to http://gridUrl:HubPort
 
-Example
+Selenium example
 WebDriver driver = new RemoteWebDriver(URI.create("http://localhost:4444/").toURL(), firefoxOptions);
 
 #### Access to Selenium Grid User Interface ?
@@ -26,7 +26,7 @@ Go to http://localhost:HubPort
 Go to http://localhost:VNCPort
 ☝️ password = secret
 
-Example
+Example to automatically
 http://localhost:7900/?autoconnect=1&resize=scale&password=secret
 
 ### Hub and Nodes
