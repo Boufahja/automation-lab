@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install -y \
     unzip \
     curl \
     xvfb \
+    x11vnc \
+    fluxbox \
     nano
 
 # Chrome browser to run the tests
@@ -51,3 +53,8 @@ RUN apt-get update && apt-get install -y \
 # selenium
 RUN pip3 install selenium \
     selenium webdriver-manager
+
+EXPOSE 5900
+ENV DISPLAY :1
+CMD Xvfb :1 -screen 0 1280x1024x16 & fluxbox & x11vnc -forever
+

@@ -220,3 +220,47 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 JavaScript error: https://media.ethicalads.io/media/client/v1.4.0/ethicalads.min.js, line 1: Error: No ad placements found.
 JavaScript error: resource:///actors/FormValidationChild.sys.mjs, line 178: TypeError: this._element is null
 1679322943090	Marionette	INFO	Stopped listening on port 40745
+1679328655825	geckodriver	INFO	Listening on 127.0.0.1:56987
+1679328656830	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "-no-remote" "-profile" "/tmp/rust_mozprofileEOq4p7"
+
+(firefox:2212): Gtk-WARNING **: 16:10:56.858: Locale not supported by C library.
+	Using the fallback 'C' locale.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+[GFX1-]: glxtest: libpci missing
+[GFX1-]: glxtest: libEGL missing
+1679328658124	Marionette	INFO	Marionette enabled
+1679328658134	Marionette	INFO	Listening on port 39559
+console.error: "Warning: unrecognized command line flag -no-sandbox\n"
+Read port: 39559
+1679328658495	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileEOq4p7/search.json.mozlz4", (void 0)))
+[Parent 2212, Main Thread] WARNING: Unable to get session bus: Failed to execute child process “dbus-launch” (No such file or directory): 'glib warning', file /build/firefox-inHim8/firefox-111.0+build2/toolkit/xre/nsSigHandlers.cpp:167
+
+(firefox:2212): LIBDBUSMENU-GLIB-WARNING **: 16:11:00.225: Unable to get session bus: Failed to execute child process ?dbus-launch? (No such file or directory)
+JavaScript error: https://media.ethicalads.io/media/client/v1.4.0/ethicalads.min.js, line 1: Error: No ad placements found.
+JavaScript error: resource:///actors/FormValidationChild.sys.mjs, line 178: TypeError: this._element is null
+1679328664128	Marionette	INFO	Stopped listening on port 39559
+1679328759691	geckodriver	INFO	Listening on 127.0.0.1:55529
+1679328760697	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--no-sandbox" "--disable-dev-shm-usage" "-no-remote" "-profile" "/tmp/rust_mozprofileus5FJT"
+
+(firefox:3889): Gtk-WARNING **: 16:12:40.721: Locale not supported by C library.
+	Using the fallback 'C' locale.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+[GFX1-]: glxtest: libpci missing
+[GFX1-]: glxtest: libEGL missing
+1679328761219	Marionette	INFO	Marionette enabled
+1679328761225	Marionette	INFO	Listening on port 35309
+console.error: "Warning: unrecognized command line flag -no-sandbox\n"
+Read port: 35309
+1679328761357	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileus5FJT/search.json.mozlz4", (void 0)))
+[Parent 3889, Main Thread] WARNING: Unable to get session bus: Failed to execute child process “dbus-launch” (No such file or directory): 'glib warning', file /build/firefox-inHim8/firefox-111.0+build2/toolkit/xre/nsSigHandlers.cpp:167
+
+(firefox:3889): LIBDBUSMENU-GLIB-WARNING **: 16:12:42.273: Unable to get session bus: Failed to execute child process ?dbus-launch? (No such file or directory)
+JavaScript error: https://media.ethicalads.io/media/client/v1.4.0/ethicalads.min.js, line 1: Error: No ad placements found.
+JavaScript error: resource:///actors/FormValidationChild.sys.mjs, line 178: TypeError: this._element is null
+1679328764895	Marionette	INFO	Stopped listening on port 35309
