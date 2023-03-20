@@ -13,4 +13,4 @@ CMD ["robot", "-d", "/usr/src/project/", "/usr/src/project/sample-0-trivial/samp
 
 
 docker build -t malek/selenium-docker .
-docker run --rm -ti --name selenium-container -v "$(pwd):/home/Workspace" malek/selenium-docker 
+docker run -ti --name selenium-container -v "$(pwd):/home/Workspace" malek/selenium-docker

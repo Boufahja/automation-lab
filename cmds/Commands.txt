@@ -58,6 +58,7 @@ http://localhost:4444/dashboard/
 ---------------------------------------------Bonus---------------------------------------
 wsl --shutdown    // to stop Vmmem process
 sudo chmod 1777 /dev/shm  // give permission to /dev/shm in case of chrome
+cat /etc/lsb-release  // display ubuntu version
 ---------------------------------------------
 
 docker run --rm `
