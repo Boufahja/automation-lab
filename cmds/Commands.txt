@@ -66,3 +66,18 @@ docker run --rm `
     -v "C:\Users\Malek BOUFAHJA\Desktop\Worspace\WerinGroup\SeleniumGridTest\selenium-grid-test\src\test\java\for_test\reports:/opt/robotframework/reports:Z" `
     -v "C:\Users\Malek BOUFAHJA\Desktop\Worspace\WerinGroup\SeleniumGridTest\selenium-grid-test\src\test\java\for_test\robot:/opt/robotframework/tests:Z" `
     ppodgorsek/robot-framework:latest
+-----------------------------------------------Extensions----------------------
+Live preview
+Live Server
+vnc-extension
+Dev containers
+Docker
+Remote Development
+Remote Explorer
+pylance
+python
+python extension pack
+python environment manager
+robot framework language server
+-----------------------------------------------Shortcuts----------------------
+Ctrl+shift +p  : palette
