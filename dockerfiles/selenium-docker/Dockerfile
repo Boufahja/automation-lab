@@ -52,7 +52,9 @@ RUN apt-get update && apt-get install -y \
 
 # selenium
 RUN pip3 install selenium \
-    selenium webdriver-manager
+    selenium webdriver-manager \
+    robotframework \
+    --upgrade robotframework-seleniumlibrary
 
 EXPOSE 5900
 ENV DISPLAY :1
