@@ -6,10 +6,13 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     unzip \
     curl \
+    novnc \
+    websockify \
     xvfb \
     x11vnc \
     fluxbox \
-    nano
+    nano && \
+    rm -rf /var/lib/apt/lists/*
 
 # Chrome browser to run the tests
 RUN curl https://dl-ssl.google.com/linux/linux_signing_key.pub -o /tmp/google.pub \
@@ -45,10 +48,13 @@ RUN wget --no-verbose -O /tmp/geckodriver.tar.gz https://github.com/mozilla/geck
 RUN mkdir /home/Workspace
 
 # python
+RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt-get update && apt-get install -y \
-    python3 \
+    python3.8 \
     python3-setuptools \
     python3-pip
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1 \
+    && update-alternatives --config python3
 
 # selenium
 RUN pip3 install selenium \
@@ -57,8 +63,25 @@ RUN pip3 install selenium \
     --upgrade robotframework-seleniumlibrary \
     robotframework-requests \
     --upgrade robotframework-appiumlibrary
+#-----------------------------------------------------------------------
+# Microsoft Edge to run the tests
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg 
+RUN install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/ 
+RUN echo "deb https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-dev.list
+RUN rm microsoft.gpg
+RUN apt update && apt install microsoft-edge-stable
 
-EXPOSE 5900
+# Install Edge WebDriver
+RUN wget -q https://msedgedriver.azureedge.net/111.0.1661.62/edgedriver_linux64.zip -O edgedriver.zip \
+    && unzip -q edgedriver.zip \
+    && rm edgedriver.zip \
+    && chmod +x msedgedriver \
+    && mv msedgedriver /usr/local/bin/
+#-----------------------------------------------------------------------
+EXPOSE 5900 6080
 ENV DISPLAY :1
-CMD Xvfb :1 -screen 0 1280x1024x16 & fluxbox & x11vnc -forever
 
+CMD [ "sh", "-c", "Xvfb :1 -screen 0 1024x768x16 & \
+                    x11vnc -nopw -xkb -forever -shared & \
+                    websockify --web /usr/share/novnc/ 6080 localhost:5900 & \
+                    tail -f /dev/null" ]
