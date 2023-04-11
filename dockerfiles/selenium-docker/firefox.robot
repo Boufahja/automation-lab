@@ -4,12 +4,12 @@ Library           SeleniumLibrary
 
 *** Variables ***
 ${LOGIN URL}      https://www.google.fr/
-${BROWSER}        chrome
+${BROWSER}        firefox
 
 *** Test Cases ***
 Valid Login
     Open Browser To Google Page
-    [Teardown]    Close Browser
+    # [Teardown]    Close Browser
 
 *** Keywords ***
 Open Browser To Google Page
