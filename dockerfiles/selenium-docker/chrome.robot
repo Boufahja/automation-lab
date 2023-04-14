@@ -18,7 +18,7 @@ Open Browser To Google Page
     Call Method    ${chrome_options}    add_argument    --disable-gpu
     Call Method    ${chrome_options}    add_argument    ---allow-running-insecure-content
     Call Method    ${chrome_options}    add_argument    --disable-web-security
-    # Call Method    ${chrome_options}    add_experimental_option    detach    ${True}    
+    Call Method    ${chrome_options}    add_experimental_option    detach    ${True}    
     Create Webdriver    Chrome    options=${chrome_options}
     Go To    ${LOGIN URL}
     Title Should Be    Google

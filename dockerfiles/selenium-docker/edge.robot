@@ -18,7 +18,7 @@ Open Browser To Google Page
     Call Method    ${edge_options}    add_argument    --disable-gpu
     Call Method    ${edge_options}    add_argument    ---allow-running-insecure-content
     Call Method    ${edge_options}    add_argument    --disable-web-security
-    # Call Method    ${edge_options}    add_experimental_option    detach    ${True}  
+    Call Method    ${edge_options}    add_experimental_option    detach    ${True}  
     Create Webdriver    Edge    options=${edge_options}
     Go To    ${LOGIN URL}
     Title Should Be    Google
